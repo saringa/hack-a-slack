@@ -1,13 +1,7 @@
 # TO-DO
 
-## 404
-As a hacker who is looking for something which does not exist, I want to see a 404 page
-
-## 500
-As a hacker who is making an unexpected error, I want to see a 500 page 
-
-## Homepage
-As a hacker entering the Domain - I want to have a short explanation about the usage of the Website and how to Login/Signup or directly enter my Feed, if i am already logged in (on the login button)
+## Create the models
+For a Hacker, Post, Comments
 
 ## Sign-Up
 As a hacker, I want to be able to Sign-Up with a hackername, E-Mail and a password. Afterwards, i want to be redirected to the Feed-Page. As a logged-in-hacker, I should not be able to see this page.
@@ -32,6 +26,15 @@ In this view, I should be able to change my password and my hackername.
 
 # Done
 
+## 404
+As a hacker who is looking for something which does not exist, I want to see a 404 page
+
+## 500
+As a hacker who is making an unexpected error, I want to see a 500 page 
+
+## Homepage
+As a hacker entering the Domain - I want to have a short explanation about the usage of the Website and how to Login/Signup or directly enter my Feed, if i am already logged in (on the login button)
+
 ---
 
 # Backlog
@@ -39,7 +42,17 @@ In this view, I should be able to change my password and my hackername.
 ## Add comments
 As a hacker, it would be nice to add comments to a post (which could count as upvotes).
 
-## 
+## AJAX
+Make the feed, the post and others views with ajax.
+
+## Include a file-upload
+As a hacker, it would be perfect, to be able to upload pictures / gifs.
+
+## Google Maps
+As a hacker, it would be perfect to only see the posts in my city and see my location on the feed.
+
+## Events
+As a hacker, it would be nice to also set up events, which are not anonymous and people can join them.
 
 ## Edit a post
 As a hacker, it would be nice, to be able to edit or delete a post. We need a new route for that (/feed/:id/edit as get and post).
@@ -47,7 +60,6 @@ As a hacker, it would be nice, to be able to edit or delete a post. We need a ne
 ## View hacker profiles
 As a hacker, it would be nice to see other hacker-pages
 
-## 
 
 
 
