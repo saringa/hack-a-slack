@@ -15,7 +15,7 @@ const dotenv = require('dotenv');
 // const configurePassport = require('./helpers/passport');
 
 const index = require('./routes/index');
-const users = require('./routes/users');
+const hackers = require('./routes/hackers');
 const auth = require('./routes/auth');
 const feed = require('./routes/feed');
 
@@ -74,8 +74,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // --ROUTES-- //
 app.use('/', index);
-app.use('/users', users);
-app.use('/', auth);
+app.use('/hackers', hackers);
+app.use('/auth', auth);
 app.use('/feed', feed);
 
 // --404 AND ERROR HANDLER--//
