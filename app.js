@@ -12,16 +12,18 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 const dotenv = require('dotenv');
-const configurePassport = require('./helpers/passport');
+// const configurePassport = require('./helpers/passport');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
+const feed = require('./routes/feed');
 
 const app = express();
 
 // --SETUP THE APP-- //
 
-// dotenv.config();
+dotenv.config();
 
 // --SESSION-- //
 app.use(session({
@@ -37,9 +39,9 @@ app.use(session({
   }
 }));
 
-//--PASSPORT-- //
+// --PASSPORT-- //
 
-configurePassport();
+// configurePassport();
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -57,9 +59,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(expressLayouts);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('layout', 'layouts/main';)
+app.set('layout', 'layouts/main');
 
-//--other middlewares-- //
+// --other middlewares-- //
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -68,17 +70,15 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// --app middlewares-- //
 
-//--app middlewares-- //
-
-
-
-//--ROUTES-- //
+// --ROUTES-- //
 app.use('/', index);
 app.use('/users', users);
+app.use('/', auth);
+app.use('/feed', feed);
 
-
-//--404 AND ERROR HANDLER--//
+// --404 AND ERROR HANDLER--//
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
