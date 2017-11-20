@@ -16,12 +16,14 @@ const dotenv = require('dotenv');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
+const feed = require('./routes/feed');
 
 const app = express();
 
 // --SETUP THE APP-- //
 
-// dotenv.config();
+dotenv.config();
 
 // --SESSION-- //
 app.use(session({
@@ -73,6 +75,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // --ROUTES-- //
 app.use('/', index);
 app.use('/users', users);
+app.use('/', auth);
+app.use('/feed', feed);
 
 // --404 AND ERROR HANDLER--//
 // catch 404 and forward to error handler
