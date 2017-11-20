@@ -14,12 +14,15 @@ const MongoStore = require('connect-mongo')(session);
 const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
+const ensureLoggedIn = require('connect-ensure-login');
 // const configurePassport = require('./helpers/passport');
 
 const index = require('./routes/index');
 const hackers = require('./routes/hackers');
 const auth = require('./routes/auth');
 const feed = require('./routes/feed');
+
+const Hacker = require('./models/hacker').Hacker;
 
 const app = express();
 
@@ -48,7 +51,7 @@ passport.serializeUser((user, cb) => {
 });
 
 passport.deserializeUser((id, cb) => {
-  User.findOne({
+  Hacker.findOne({
     '_id': id
   }, (err, user) => {
     if (err) {
@@ -58,16 +61,18 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-passport.use(new LocalStrategy((username, password, next) => {
-  User.findOne({
-    username
+passport.use(new LocalStrategy({
+  passReqToCallback: true
+}, (req, hackername, password, next) => {
+  Hacker.findOne({
+    hackername
   }, (err, user) => {
     if (err) {
       return next(err);
     }
     if (!user) {
       return next(null, false, {
-        message: 'Incorrect username'
+        message: 'Incorrect hackername'
       });
     }
     if (!bcrypt.compareSync(password, user.password)) {
