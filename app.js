@@ -12,7 +12,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 const dotenv = require('dotenv');
-const configurePassport = require('./helpers/passport');
+// const configurePassport = require('./helpers/passport');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -39,7 +39,7 @@ app.use(session({
 
 // --PASSPORT-- //
 
-configurePassport();
+// configurePassport();
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
