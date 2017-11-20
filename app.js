@@ -19,11 +19,11 @@ const users = require('./routes/users');
 
 const app = express();
 
-// -- SETUP THE APP
+// --SETUP THE APP-- //
 
 // dotenv.config();
 
-// --session
+// --SESSION-- //
 app.use(session({
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
@@ -37,14 +37,14 @@ app.use(session({
   }
 }));
 
-// - passport
+//--PASSPORT-- //
 
 configurePassport();
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// --DATABASE
+// --DATABASE-- //
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI, {
@@ -53,14 +53,13 @@ mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true
 });
 
-// views
+// --VIEWS-- //
 app.use(expressLayouts);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main';)
 
-// uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//--other middlewares-- //
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -69,9 +68,17 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//--app middlewares-- //
+
+
+
+//--ROUTES-- //
 app.use('/', index);
 app.use('/users', users);
 
+
+//--404 AND ERROR HANDLER--//
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
