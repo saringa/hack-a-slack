@@ -6,8 +6,14 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const postSchema = new Schema({
-  upvotes: [],
-  downvotes: [],
+  upvotes: {
+    type: [ObjectId],
+    ref: 'Hacker'
+  },
+  downvotes: {
+    type: [ObjectId],
+    ref: 'Hacker'
+  },
   score: Number,
   owner: {
     type: ObjectId,
@@ -15,8 +21,7 @@ const postSchema = new Schema({
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
-  },
-  time : { type: Date, default: Date.now }
+  }
 });
 
 const Post = mongoose.model('Post', postSchema);
