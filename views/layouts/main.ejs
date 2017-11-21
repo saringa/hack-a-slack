@@ -6,7 +6,11 @@
 </head>
 
 <body>
-  <%-body%>
+  <% if (user) { %>
+    <button>
+      <a href="/auth/logout"></a> Logout</button>
+    <% } %>
+      <%-body%>
 </body>
 
 </html>

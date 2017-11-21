@@ -18,9 +18,12 @@ const postSchema = new Schema({
   owner: {
     type: ObjectId,
     ref: 'Hacker'
-  },
-  {
-    timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
+  }
+},
+{
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   }
 });
 

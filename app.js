@@ -96,6 +96,13 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// --SET USER AS A GLOBAL VARIABLE (FOR LOGOUT) --- //
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 // --DATABASE-- //
 
 mongoose.Promise = Promise;

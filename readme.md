@@ -38,12 +38,12 @@ As a assigned hacker, I should be able to login and be redirected to the feed pa
 ## Create the models
 For a Hacker, Post, Comments
 
+## BUG: Error Handler in the Auth-Route
+Eslint-Error: Is expected to be handled, but it is working.
+
 ---
 
 # Backlog
-
-## BUG: Error Handler in the Auth-Route
-Eslint-Error: Is expected to be handled, but it is working.
 
 ## Add comments
 As a hacker, it would be nice to add comments to a post (which could count as upvotes).
