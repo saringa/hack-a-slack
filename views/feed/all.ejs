@@ -5,15 +5,22 @@
     <p>
       <%=post[ix].text%>
     </p>
-    <form action="/feed/upvote/<%= post[ix]._id %>" method="POST">
-      <input type="submit" value="Upvote">
-    </form>
-    <p>
-      <%=post[ix].score%>
-    </p>
-    <form action="/feed/downvote/<%= post[ix]._id %>" method="POST">
-      <input type="submit" value="Downvote">
-    </form>
+    <% var isInArray = post[ix].downvotes.some((el) => { %>
+      <%  return el.equals(user._id); %>
+        <% }); %>
+          <% if(isInArray == false) { %>
+            <form action="/feed/upvote/<%= post[ix]._id %>" method="POST">
+              <input type="submit" value="Upvote">
+            </form>
+            <% } %>
+              <p>
+                <%=post[ix].score%>
+              </p>
+              <% if(post[ix].downvotes.indexOf(user._id) == -1) { %>
+                <form action="/feed/downvote/<%= post[ix]._id %>" method="POST">
+                  <input type="submit" value="Downvote">
+                </form>
+                <% } %>
   </div>
   <% } %>
     <hr>

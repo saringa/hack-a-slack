@@ -19,8 +19,14 @@ router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
         return elem.created_at > currentTime;
       });
       const data = {
+        user: req.user,
         post: valideDates
       };
+      // console.log(data.post[0].upvotes.indexOf(data.user._id));
+      var isInArray = data.post[2].downvotes.some(function (el) {
+        return el.equals(data.user._id);
+      });
+      console.log(isInArray);
       res.render('feed/all', data);
     }
   });
