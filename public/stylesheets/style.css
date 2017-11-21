@@ -29,3 +29,9 @@ label {
 .error-message {
   color: #fcf4d9;
 }
+
+.post {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

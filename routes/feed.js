@@ -55,4 +55,41 @@ router.post('/new', (req, res, next) => {
   // create and saves the new post and redirects to the page of the newly created post
 });
 
+router.post('/upvote/:postId', (req, res, next) => {
+  const postId = req.params.postId;
+  // const postUpvotes = postId.upvotes;
+  const updateUpvote = {
+    $push: {
+      upvotes: postId
+    },
+    $set: {
+      score: 5
+    }
+  };
+
+  Post.update({ _id: postId }, updateUpvote, (err) => {
+    if (err) {
+      next(err);
+    }
+  });
+
+  res.redirect('/feed');
+});
+
+router.post('/downvote/:postId', (req, res, next) => {
+  const postId = req.params.postId;
+  // const postUpvotes = postId.upvotes;
+  const updates = {
+    $push: {
+      downvotes: postId
+    }
+  };
+  Post.update({ _id: postId }, updates, (err) => {
+    if (err) {
+      next(err);
+    }
+  });
+  res.redirect('/feed');
+});
+
 module.exports = router;

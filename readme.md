@@ -1,20 +1,10 @@
 # TO-DO
 
-## Logout
-As a User, I want to be able to logout.
-
-## Feed
-After Login / Signup or directly from the homepage, I want to enter the Feed of my related Team (Ironhack). In this view, I want to be able to see all the Posts from the last 24 Hours in an ordered order, after Up- and Down-Votes and filtered, if the message is posted (status). As a User I should see a Button for a new post and should be able to click on a post to see the comments. 
-
-## New Post
-After Clicking on "New Post", I should be able to add content to my already created, but empty, post. If I do not edit anything, the post should be deleted afterwards again. After submitting, the stated of posted should be true.
+## Up- and Downvote
+As a User, I should be able to up- and downvote a Post - but only once.
 
 ## Post
 After clicking on "save" for a new post, it should be redirected to the post-view of this post, where I am able to make a new comment or to up- or downvote it. I should also be able to go back to my feed-page.
-
-## Edit profile
-In this view, I should be able to change my password and my hackername.
-
 
 ---
 
@@ -40,6 +30,16 @@ For a Hacker, Post, Comments
 
 ## BUG: Error Handler in the Auth-Route
 Eslint-Error: Is expected to be handled, but it is working.
+
+## Logout
+As a User, I want to be able to logout.
+
+## Feed
+After Login / Signup or directly from the homepage, I want to enter the Feed of my related Team (Ironhack). In this view, I want to be able to see all the Posts from the last 24 Hours in an ordered order, after Up- and Down-Votes and filtered, if the message is posted (status). As a User I should see a Button for a new post and should be able to click on a post to see the comments. 
+
+
+## New Post
+After Clicking on "New Post", I should be able to add content to my already created, but empty, post. If I do not edit anything, the post should be deleted afterwards again. After submitting, the stated of posted should be true.
 
 ---
 
