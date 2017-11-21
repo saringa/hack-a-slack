@@ -1,5 +1,7 @@
 # TO-DO
 
+## Logout
+As a User, I want to be able to logout.
 
 ## Feed
 After Login / Signup or directly from the homepage, I want to enter the Feed of my related Team (Ironhack). In this view, I want to be able to see all the Posts from the last 24 Hours in an ordered order, after Up- and Down-Votes and filtered, if the message is posted (status). As a User I should see a Button for a new post and should be able to click on a post to see the comments. 
