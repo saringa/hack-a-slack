@@ -20,8 +20,7 @@ const postSchema = new Schema({
     type: ObjectId,
     ref: 'Hacker'
   }
-},
-{
+}, {
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'
