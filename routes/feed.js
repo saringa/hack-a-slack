@@ -62,8 +62,8 @@ router.post('/upvote/:postId', (req, res, next) => {
     $push: {
       upvotes: postId
     },
-    $set: {
-      score: 5
+    $inc: {
+      score: 1
     }
   };
 
@@ -82,6 +82,9 @@ router.post('/downvote/:postId', (req, res, next) => {
   const updates = {
     $push: {
       downvotes: postId
+    },
+    $inc: {
+      score: -1
     }
   };
   Post.update({ _id: postId }, updates, (err) => {
