@@ -2,9 +2,18 @@ const express = require('express');
 const router = express.Router();
 const ensureLogin = require('connect-ensure-login');
 
+const Post = require('../models/post').Post;
+
 router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
-  console.log(req);
-  res.render('feed/all');
+  Post.find({}, (err, result) => {
+    if (err) {
+      return next(err);
+    }
+    const data = {
+      feeds: result
+    };
+    res.render('feed/all', data);
+  });
   // get all the posts, filter for timestamp (validation), sort by score (upvotes)
 });
 
