@@ -4,7 +4,8 @@ const router = express.Router();
 const ensureLogin = require('connect-ensure-login');
 
 router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
-  res.render('feed/all'); // get all the posts, filter for timestamp (validation), sort by score (upvotes)
+  res.render('feed/all');
+  // get all the posts, filter for timestamp (validation), sort by score (upvotes)
 });
 
 router.get('/:id', (req, res, next) => {
