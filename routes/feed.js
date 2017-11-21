@@ -5,14 +5,14 @@ const ensureLogin = require('connect-ensure-login');
 const Post = require('../models/post').Post;
 
 router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
-  Post.find({}, (error, result) => {
+  const mysort = { score: -1 };
+  Post.find({}).sort(mysort).exec((error, result) => {
     if (error) {
       next(error);
     } else {
       const data = {
         post: result
       };
-      console.log(data.post[0].text);
       res.render('feed/all', data);
     }
   });
