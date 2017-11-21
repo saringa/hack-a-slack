@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-<h2>Login</h2>
-
-
-<form action="/login" method="POST">
-=======
 <form action="/auth/login" method="POST">
->>>>>>> 53d6d4cabcb02c86a40ec3873ef6a7e31aa5c542
   <div>
     <label for="username">Username:</label>
     <input type="text" name="username">
@@ -15,12 +8,6 @@
     <label for="password">Password:</label>
     <input type="password" name="password">
   </div>
-<<<<<<< HEAD
-  <br>
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-=======
   <% if (typeof message !== "undefined") { %>
     <div class="error-message">
       <%= message %>
@@ -29,5 +16,4 @@
       <div>
         <input type="submit" value="Log In">
       </div>
->>>>>>> 53d6d4cabcb02c86a40ec3873ef6a7e31aa5c542
 </form>
