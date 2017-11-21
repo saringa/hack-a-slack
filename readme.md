@@ -40,6 +40,9 @@ For a Hacker, Post, Comments
 
 # Backlog
 
+## BUG: Error Handler in the Auth-Route
+Eslint-Error: Is expected to be handled, but it is working.
+
 ## Add comments
 As a hacker, it would be nice to add comments to a post (which could count as upvotes).
 
