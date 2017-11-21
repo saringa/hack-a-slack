@@ -1,3 +1,5 @@
+<h2>Login</h2>
+
 <form action="/auth/login" method="POST">
   <div>
     <label for="username">Username:</label>
@@ -8,11 +10,13 @@
     <label for="password">Password:</label>
     <input type="password" name="password">
   </div>
+  <br>
   <% if (typeof message !== "undefined") { %>
     <div class="error-message">
       <%= message %>
     </div>
     <% } %>
+      <br>
       <div>
         <input type="submit" value="Log In">
       </div>

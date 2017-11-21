@@ -9,6 +9,13 @@ const Hacker = require('../models/hacker').Hacker;
 const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 
+router.use((req, res, next) => {
+  if (req.user && req.path !== '/logout') {
+    res.redirect('/feed');
+  }
+  next();
+});
+
 router.get('/signup', (req, res, next) => {
   res.render('auth/signup');
   // Checks, if hacker is logged in, Render the Signup-View (views/auth/signup)
@@ -74,5 +81,11 @@ router.post('/login', passport.authenticate('local', {
   passReqToCallback: true
 }));
 
+// logout
+
+router.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/auth/login');
+});
 // Creates a session and redirects to feed
 module.exports = router;
