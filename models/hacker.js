@@ -13,4 +13,6 @@ const hackerSchema = new Schema({
 
 const Hacker = mongoose.model('Hacker', hackerSchema);
 
-module.exports = Hacker;
+module.exports = {
+  Hacker
+};
