@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const postSchema = new Schema({
+  text: String,
   upvotes: {
     type: [ObjectId],
     ref: 'Hacker'

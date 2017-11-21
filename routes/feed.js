@@ -5,6 +5,7 @@ const ensureLogin = require('connect-ensure-login');
 const Post = require('../models/post').Post;
 
 router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
+<<<<<<< HEAD
   Post.find({}, (err, result) => {
     if (err) {
       return next(err);
@@ -13,6 +14,18 @@ router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
       feeds: result
     };
     res.render('feed/all', data);
+=======
+  Post.find({}, (error, result) => {
+    if (error) {
+      next(error);
+    } else {
+      const data = {
+        post: result
+      };
+      console.log(data.post[0].text);
+      res.render('feed/all', data);
+    }
+>>>>>>> b5eafc01ef06e10e44ab19f72b06e7762283f861
   });
   // get all the posts, filter for timestamp (validation), sort by score (upvotes)
 });
