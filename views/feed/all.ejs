@@ -1,15 +1,19 @@
 <h1>Your Ironhack Feed:</h1>
 
-<div class="post">
-  <hr>
-  <p>
-    <%=post[0].text%>
-  </p>
-</div>
 
-<div class="post">
+<% for(var ix =0; ix < post.length; ix++) { %>
+  <div class="post"></div>
   <hr>
   <p>
-    <%=post[1].text%>
+    <%=post[ix].text%>
   </p>
-</div>
+  </div>
+  <% } %>
+
+
+    <div class="post">
+      <hr>
+      <p>
+        <%=post[1].text%>
+      </p>
+    </div>
