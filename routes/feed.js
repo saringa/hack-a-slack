@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const ensureLogin = require('connect-ensure-login');
 
+const Comment = require('../models/comment').Comment;
 const Post = require('../models/post').Post;
 const MAX_POST_AGE = require('../models/post').MAX_AGE;
 
+// get all the posts, filter for timestamp (validation), sort by score (upvotes)
 router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const mysort = {
     score: -1
@@ -26,18 +28,14 @@ router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
       res.render('feed/all', data);
     }
   });
-  // get all the posts, filter for timestamp (validation), sort by score (upvotes)
 });
 
+// render the new-post-page with a form for a new feed
 router.get('/new', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   res.render('feed/new');
-  // render the new-post-page with a form for a new feed
 });
 
-router.get('/:id', (req, res, next) => {
-  // find the selected post, including the comments from the database and rendering it
-});
-
+// create and saves the new post and redirects to the page of the newly created post
 router.post('/new', (req, res, next) => {
   const hacker = req.user._id;
   const posttext = req.body.text;
@@ -53,14 +51,11 @@ router.post('/new', (req, res, next) => {
     }
     res.redirect('/feed');
   });
-
-  // create and saves the new post and redirects to the page of the newly created post
 });
 
 router.post('/upvote/:postId', (req, res, next) => {
   const postId = req.params.postId;
   const userId = req.user._id;
-  // const postUpvotes = postId.upvotes;
 
   Post.findOne({ _id: postId }, (err, result) => {
     if (err) {
@@ -97,7 +92,6 @@ router.post('/upvote/:postId', (req, res, next) => {
 router.post('/downvote/:postId', (req, res, next) => {
   const postId = req.params.postId;
   const userId = req.user._id;
-  // const postUpvotes = postId.upvotes;
 
   Post.findOne({ _id: postId }, (err, result) => {
     if (err) {
@@ -131,7 +125,7 @@ router.post('/downvote/:postId', (req, res, next) => {
   });
 });
 
-router.post('/:postId', (req, res, next) => {
+router.get('/:postId', (req, res, next) => {
   const postId = req.params.postId;
   Post.findOne({ _id: postId }, (err, result) => {
     if (err) {
@@ -142,6 +136,38 @@ router.post('/:postId', (req, res, next) => {
     };
     res.render('feed/detail', data);
   });
+});
+
+// NEW COMMENT
+router.post('/:postId/comment', (req, res, next) => {
+  //   const postId = req.params.
+  //   const hacker = req.user._id;
+  //   const commentText = req.body.text;
+  //   const newComment = new Comment({
+  //     text: posttext,
+  //     owner: hacker,
+  //   });
+
+  //   newPost.save((err) => { });
+
+  //   const updateDownvote = {
+  //     $push: {
+  //       downvotes: userId
+  //     },
+  //     $inc: {
+  //       score: -1
+  //     }
+  //   };
+
+  //   Post.update({
+  //     _id: postId
+  //   }, updateDownvote, (err) => {
+  //     if (err) {
+  //       next(err);
+  //     }
+  //   });
+  //   res.redirect('/feed');
+  // }
 });
 
 module.exports = router;

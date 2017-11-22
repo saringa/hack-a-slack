@@ -1,10 +1,12 @@
-<h2>Comments</h2>
+<h2> Post Number:
+  <%= post._id %>
+</h2>
 
 <p>
   <%= post.text %>
 </p>
 
-<form action="/feed/detail" method="POST" id="new-comment">
+<form action="/feed/<%=post._id%>/comment" method="POST" id="new-comment">
   <div>
     <textarea id="post-text" type="text" maxlength="200" name="text" placeholder="Type your comment here."></textarea>
     <br>
