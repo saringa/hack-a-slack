@@ -1,5 +1,9 @@
 <h2>Comments</h2>
 
+<p>
+  <%= post.text %>
+</p>
+
 <form action="/feed/detail" method="POST" id="new-comment">
   <div>
     <textarea id="post-text" type="text" maxlength="200" name="text" placeholder="Type your comment here."></textarea>

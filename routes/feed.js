@@ -116,4 +116,17 @@ router.post('/downvote/:postId', (req, res, next) => {
   res.redirect('/feed');
 });
 
+router.post('/:postId', (req, res, next) => {
+  const postId = req.params.postId;
+  Post.findOne({ _id: postId }, (err, result) => {
+    if (err) {
+      next(err);
+    }
+    const data = {
+      post: result
+    };
+    res.render('feed/detail', data);
+  });
+});
+
 module.exports = router;
