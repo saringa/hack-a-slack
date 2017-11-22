@@ -5,25 +5,28 @@
     <p>
       <%=postArray[ix].text%>
     </p>
-    <% var isInArray = postArray[ix].upvotes.some((el) => { %>
+    <% let isInUpvotes = postArray[ix].upvotes.some((el) => { %>
       <%  return el.equals(user._id); %>
         <% }); %>
-          <% if(isInArray == false) { %>
-            <form action="/feed/upvote/<%= postArray[ix]._id %>" method="POST">
-              <input type="submit" value="Upvote">
-            </form>
-            <% } %>
-              <p>
-                <%=post[ix].score%>
-              </p>
-              <% var isInArray = postArray[ix].downvotes.some((el) => { %>
-                <%  return el.equals(user._id); %>
-                  <% }); %>
-                    <% if(isInArray == false) { %>
-                      <form action="/feed/downvote/<%= postArray[ix]._id %>" method="POST">
-                        <input type="submit" value="Downvote">
-                      </form>
-                      <% } %>
+          <% let isInDownvotes = postArray[ix].downvotes.some((el) => { %>
+            <%  return el.equals(user._id); %>
+              <% }); %>
+                <% if(isInUpvotes == false && isInDownvotes == false) { %>
+                  <form action="/feed/upvote/<%= postArray[ix]._id %>" method="POST">
+                    <input type="submit" value="Upvote">
+                  </form>
+                  <form action="/feed/downvote/<%= postArray[ix]._id %>" method="POST">
+                    <input type="submit" value="Downvote">
+                  </form>
+                  <% } else { %>
+                    <p>
+                      You already voted for that!
+                    </p>
+                    <% } %>
+                      <p>
+                        <%=postArray[ix].score%>
+                      </p>
+                      <%  console.log(isInUpvotes, isInDownvotes)%>
   </div>
   <% } %>
     <hr>
