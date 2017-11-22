@@ -140,34 +140,28 @@ router.get('/:postId', (req, res, next) => {
 
 // NEW COMMENT
 router.post('/:postId/comment', (req, res, next) => {
-  //   const postId = req.params.
-  //   const hacker = req.user._id;
-  //   const commentText = req.body.text;
-  //   const newComment = new Comment({
-  //     text: posttext,
-  //     owner: hacker,
-  //   });
+  const postId = req.params.postId;
+  const hacker = req.user._id;
+  const commentText = req.body.text;
+  const newComment = new Comment({
+    text: commentText,
+    owner: hacker
+  });
 
-  //   newPost.save((err) => { });
+  newComment.save((err) => { });
 
-  //   const updateDownvote = {
-  //     $push: {
-  //       downvotes: userId
-  //     },
-  //     $inc: {
-  //       score: -1
-  //     }
-  //   };
+  const updateComments = {
+    $push: {
+      comments: newComment
+    }
+  };
 
-  //   Post.update({
-  //     _id: postId
-  //   }, updateDownvote, (err) => {
-  //     if (err) {
-  //       next(err);
-  //     }
-  //   });
-  //   res.redirect('/feed');
-  // }
+  Post.update({ _id: postId }, updateComments, (err) => {
+    if (err) {
+      next(err);
+    }
+    res.redirect('/feed');
+  });
 });
 
 module.exports = router;
