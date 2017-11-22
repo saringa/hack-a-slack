@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const Comment = require('./comment').Comment;
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
@@ -21,7 +22,8 @@ const postSchema = new Schema({
   owner: {
     type: ObjectId,
     ref: 'Hacker'
-  }
+  },
+  comments: [Comment.schema]
 }, {
   timestamps: {
     createdAt: 'created_at',
