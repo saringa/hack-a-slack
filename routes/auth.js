@@ -16,11 +16,12 @@ router.use((req, res, next) => {
   next();
 });
 
+// Checks, if hacker is logged in, Render the Signup-View (views/auth/signup)
 router.get('/signup', (req, res, next) => {
   res.render('auth/signup');
-  // Checks, if hacker is logged in, Render the Signup-View (views/auth/signup)
 });
 
+// Creates a new hacker, saves it in the Database, Redirects to feed
 router.post('/signup', (req, res, next) => {
   const hackername = req.body.hackername;
   const password = req.body.password;
@@ -67,14 +68,12 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
-// Creates a new hacker, saves it in the Database, Redirects to feed
-
+// Checks Logged-In, Find the hacker in the Database, Redirect to Feed
 router.get('/login', (req, res, next) => {
   res.render('auth/login', {
     'message': req.flash('error')
   });
 });
-// Checks Logged-In, Find the hacker in the Database, Redirect to Feed
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/feed',
@@ -87,7 +86,6 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout', function (req, res) {
   req.logout();
-  res.redirect('/auth/login');
+  res.redirect('/');
 });
-// Creates a session and redirects to feed
 module.exports = router;

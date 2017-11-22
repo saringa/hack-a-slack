@@ -21,14 +21,8 @@ router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
       });
       const data = {
         user: req.user,
-        post: valideDates
+        postArray: valideDates
       };
-      // console.log(data.post[0].upvotes.indexOf(data.user._id));
-      var isInArray = data.post[1].downvotes.some(function (el, index, array) {
-        console.log('Element: ' + el);
-        return el.equals(data.user._id);
-      });
-      console.log(isInArray, 'test' + data.user._id);
       res.render('feed/all', data);
     }
   });

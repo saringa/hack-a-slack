@@ -1,26 +1,26 @@
 <h1>Your Ironhack Feed:</h1>
-<% for(var ix =0; ix < post.length; ix++) { %>
+<% for(var ix =0; ix < postArray.length; ix++) { %>
   <hr>
   <div class="post">
     <p>
-      <%=post[ix].text%>
+      <%=postArray[ix].text%>
     </p>
-    <% var isInArray = post[ix].upvotes.some((el) => { %>
+    <% var isInArray = postArray[ix].upvotes.some((el) => { %>
       <%  return el.equals(user._id); %>
         <% }); %>
           <% if(isInArray == false) { %>
-            <form action="/feed/upvote/<%= post[ix]._id %>" method="POST">
+            <form action="/feed/upvote/<%= postArray[ix]._id %>" method="POST">
               <input type="submit" value="Upvote">
             </form>
             <% } %>
               <p>
                 <%=post[ix].score%>
               </p>
-              <% var isInArray = post[ix].downvotes.some((el) => { %>
+              <% var isInArray = postArray[ix].downvotes.some((el) => { %>
                 <%  return el.equals(user._id); %>
                   <% }); %>
                     <% if(isInArray == false) { %>
-                      <form action="/feed/downvote/<%= post[ix]._id %>" method="POST">
+                      <form action="/feed/downvote/<%= postArray[ix]._id %>" method="POST">
                         <input type="submit" value="Downvote">
                       </form>
                       <% } %>

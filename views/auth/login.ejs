@@ -2,7 +2,7 @@
 
 <form action="/auth/login" method="POST">
   <div>
-    <label for="username">Username:</label>
+    <label for="username">Hackername:</label>
     <input type="text" name="username">
   </div>
   <br>
@@ -10,7 +10,6 @@
     <label for="password">Password:</label>
     <input type="password" name="password">
   </div>
-  <br>
   <% if (typeof message !== "undefined") { %>
     <div class="error-message">
       <%= message %>
@@ -21,3 +20,9 @@
         <input type="submit" value="Log In">
       </div>
 </form>
+<p class="account-message">
+  Want to join?
+  <button>
+    <a class="buttons" href="/auth/signup">Create Account</a>
+  </button>
+</p>
