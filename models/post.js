@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
+const MAX_AGE = 24 * 60 * 60 * 1000;
+
 const postSchema = new Schema({
   text: String,
   upvotes: {
@@ -30,5 +32,6 @@ const postSchema = new Schema({
 const Post = mongoose.model('Post', postSchema);
 
 module.exports = {
-  Post
+  Post,
+  MAX_AGE
 };

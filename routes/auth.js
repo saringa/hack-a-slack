@@ -59,12 +59,14 @@ router.post('/signup', (req, res, next) => {
         res.render('auth/signup', {
           message: 'Something went wrong'
         });
-      } else {
-        res.redirect('/');
       }
+      req.login(newHacker, () => {
+        res.redirect('/feed');
+      });
     });
   });
 });
+
 // Creates a new hacker, saves it in the Database, Redirects to feed
 
 router.get('/login', (req, res, next) => {

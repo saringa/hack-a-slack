@@ -3,20 +3,21 @@ const router = express.Router();
 const ensureLogin = require('connect-ensure-login');
 
 const Post = require('../models/post').Post;
+const MAX_POST_AGE = require('../models/post').MAX_AGE;
 
 router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const mysort = {
     score: -1
   };
-  let currentTime = new Date();
-  const dateOffset = (24 * 60 * 60 * 1000);
-  currentTime.setTime(currentTime.getTime() - dateOffset);
+  const currentTime = new Date();
+  const threshold = new Date();
+  threshold.setTime(currentTime.getTime() - MAX_POST_AGE);
   Post.find({}).sort(mysort).exec((error, result) => {
     if (error) {
       next(error);
     } else {
       const valideDates = result.filter(elem => {
-        return elem.created_at > currentTime;
+        return elem.created_at > threshold;
       });
       const data = {
         user: req.user,
@@ -75,7 +76,9 @@ router.post('/upvote/:postId', (req, res, next) => {
     }
   };
 
-  Post.update({ _id: postId }, updateUpvote, (err) => {
+  Post.update({
+    _id: postId
+  }, updateUpvote, (err) => {
     if (err) {
       next(err);
     }
@@ -96,7 +99,9 @@ router.post('/downvote/:postId', (req, res, next) => {
       score: -1
     }
   };
-  Post.update({ _id: postId }, updates, (err) => {
+  Post.update({
+    _id: postId
+  }, updates, (err) => {
     if (err) {
       next(err);
     }
