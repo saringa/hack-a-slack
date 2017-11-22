@@ -23,10 +23,11 @@ router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
         post: valideDates
       };
       // console.log(data.post[0].upvotes.indexOf(data.user._id));
-      var isInArray = data.post[2].downvotes.some(function (el) {
+      var isInArray = data.post[1].downvotes.some(function (el, index, array) {
+        console.log('Element: ' + el);
         return el.equals(data.user._id);
       });
-      console.log(isInArray);
+      console.log(isInArray, 'test' + data.user._id);
       res.render('feed/all', data);
     }
   });
@@ -63,10 +64,11 @@ router.post('/new', (req, res, next) => {
 
 router.post('/upvote/:postId', (req, res, next) => {
   const postId = req.params.postId;
+  const userId = req.user._id;
   // const postUpvotes = postId.upvotes;
   const updateUpvote = {
     $push: {
-      upvotes: postId
+      upvotes: userId
     },
     $inc: {
       score: 1
@@ -84,10 +86,11 @@ router.post('/upvote/:postId', (req, res, next) => {
 
 router.post('/downvote/:postId', (req, res, next) => {
   const postId = req.params.postId;
+  const userId = req.user._id;
   // const postUpvotes = postId.upvotes;
   const updates = {
     $push: {
-      downvotes: postId
+      downvotes: userId
     },
     $inc: {
       score: -1
