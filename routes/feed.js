@@ -98,22 +98,37 @@ router.post('/downvote/:postId', (req, res, next) => {
   const postId = req.params.postId;
   const userId = req.user._id;
   // const postUpvotes = postId.upvotes;
-  const updates = {
-    $push: {
-      downvotes: userId
-    },
-    $inc: {
-      score: -1
-    }
-  };
-  Post.update({
-    _id: postId
-  }, updates, (err) => {
+
+  Post.findOne({ _id: postId }, (err, result) => {
     if (err) {
       next(err);
+    } else {
+      let alreadyVoted = result.downvotes.some((el) => {
+        return el.equals(userId);
+      });
+      if (alreadyVoted == true) {
+        res.redirect('/feed');
+      } else {
+        const updateDownvote = {
+          $push: {
+            downvotes: userId
+          },
+          $inc: {
+            score: -1
+          }
+        };
+
+        Post.update({
+          _id: postId
+        }, updateDownvote, (err) => {
+          if (err) {
+            next(err);
+          }
+        });
+        res.redirect('/feed');
+      }
     }
   });
-  res.redirect('/feed');
 });
 
 router.post('/:postId', (req, res, next) => {
