@@ -1,9 +1,5 @@
 html {
   box-sizing: border-box;
-<<<<<<< HEAD
-=======
-  /* border: 1px solid; */
->>>>>>> 6e3ee586a63c66c78387ea4dd4e6f4f22b6eea1a
   font-family: "Orbitron", sans-serif;
 }
 *,
@@ -17,6 +13,7 @@ body {
   padding: 50px;
   margin-top: 150px;
   height: 100vh;
+  background-image: url("../images/Artboard.svg");
 }
 
 .header {
@@ -78,6 +75,8 @@ body {
 .form {
   align-items: center;
   justify-content: space-around;
+  display: flex;
+  flex-direction: column;
 }
 
 #post-text {
@@ -102,4 +101,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+textarea {
+  width: 50%;
+  height: 25%;
+  background-color: black;
+  color: lawngreen;
+  border: solid black 2px;
+  font-family: monospace;
+  font-size: 2em;
 }
