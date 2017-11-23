@@ -1,15 +1,15 @@
-<h2> Post Number:
-  <%= post._id %>
-</h2>
+<div class="container">
+  <h2> Comment on post:</h2>
 
-<p>
-  <%= post.text %>
-</p>
+  <p>
+    <%= post.text %>
+  </p>
 
-<form action="/feed/<%=post._id%>/comment" method="POST" id="new-comment">
-  <div>
-    <textarea id="post-text" type="text" maxlength="200" name="text" placeholder="Type your comment here."></textarea>
-    <br>
-    <br>
-    <button class="buttons" type="submit">Submit</button>
-  </div>
+  <form action="/feed/<%=post._id%>/comment" method="POST" id="new-comment">
+    <div class="form">
+      <textarea id="post-text" type="text" maxlength="200" name="text" placeholder="Type your comment here."></textarea>
+      <br>
+      <br>
+      <button class="buttons" type="submit">Submit</button>
+    </div>
+</div>

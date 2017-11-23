@@ -1,26 +1,28 @@
-<h2>Login</h2>
+<div class="container">
+  <h2>Login</h2>
 
-<form action="/auth/login" method="POST">
-  <div>
-    <label for="username">Hackername:</label>
-    <input type="text" name="username">
-  </div>
-  <br>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  <% if (typeof message !== "undefined") { %>
-    <div class="error-message">
-      <%= message %>
+  <form action="/auth/login" method="POST">
+    <div>
+      <label for="username">Hackername:</label>
+      <input type="text" name="username">
     </div>
-    <% } %>
-      <br>
-      <div>
-        <input type="submit" value="Log In">
+    <br>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+    </div>
+    <% if (typeof message !== "undefined") { %>
+      <div class="error-message">
+        <%= message %>
       </div>
-</form>
-<p class="account-message">
-  Want to join?
-  <a class="buttons" href="/auth/signup">Create Account</a>
-</p>
+      <% } %>
+        <br>
+        <div>
+          <input type="submit" value="Log In">
+        </div>
+  </form>
+  <p class="account-message">
+    Want to join?
+    <a class="buttons" href="/auth/signup">Create Account</a>
+  </p>
+</div>

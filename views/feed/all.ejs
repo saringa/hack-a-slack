@@ -1,21 +1,21 @@
 <div class="container">
   <h2>Your Ironhack Feed:</h2>
-  <p>
-
-  </p>
 
 
   <% for(var ix =0; ix < postArray.length; ix++) { %>
     <hr>
     <div class="post">
-      <p>
-        <%=postArray[ix].text%>
-          <%for(var iy = 0; iy < postArray[ix].comments.length; iy++) { %>
-            <p> //
-              <%=postArray[ix].comments[iy].text%>
-            </p>
-            <% } %>
-      </p>
+
+      <div class="comment">
+        <p>
+          <%=postArray[ix].text%>
+            <%for(var iy = 0; iy < postArray[ix].comments.length; iy++) { %>
+              <p> //
+                <%=postArray[ix].comments[iy].text%>
+              </p>
+              <% } %>
+        </p>
+      </div>
       <% let isInUpvotes = postArray[ix].upvotes.some((el) => { %>
         <%  return el.equals(user._id); %>
           <% }); %>
