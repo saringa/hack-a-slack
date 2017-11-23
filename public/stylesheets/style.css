@@ -1,13 +1,13 @@
 html {
   box-sizing: border-box;
-  border: 1px solid;
+  /* border: 1px solid; */
   font-family: "Orbitron", sans-serif;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
-  border: 2px solid;
+  /* border: 2px solid; */
 }
 
 body {
@@ -28,21 +28,18 @@ body {
   font-size: 32pt;
 }
 
-.header-buttons{
-  display:flex;
+.header-buttons {
+  display: flex;
   justify-content: flex-end;
 }
 
-.buttons{
+.buttons {
   padding: 0 5%;
 }
 
-.container{
+.container {
   margin-top: 80px;
 }
-
-
-
 
 /* .buttons {
   color: #50e3c2;
@@ -54,9 +51,8 @@ body {
 }
 .buttons:hover {
   background: #ff7a5a;
-  text-decoration: none; */
-}
-
+  text-decoration: none;
+} */
 
 .post {
   display: flex;
