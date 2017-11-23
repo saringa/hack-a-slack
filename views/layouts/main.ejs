@@ -3,14 +3,27 @@
 
 <head>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 </head>
 
+
 <body>
-  <% if (user) { %>
-    <a class="buttons" href="/auth/logout">Logout</a>
-    <a class="buttons" href="/feed/new">New Post!</a>
-    <% } %>
-      <%-body%>
+  <header class="header">
+    <div>
+      <h1>HACK-A-SLACK</h1>
+    </div>
+    <div class="header-buttons">
+      <% if (user) { %>
+        <a class="buttons" href="/auth/logout">Logout</a>
+
+        <a class="buttons" href="/feed/new">New Post!</a>
+        <% } %>
+
+    </div>
+  </header>
+
+  <%-body%>
+
 </body>
 
 </html>

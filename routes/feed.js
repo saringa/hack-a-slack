@@ -57,7 +57,9 @@ router.post('/upvote/:postId', (req, res, next) => {
   const postId = req.params.postId;
   const userId = req.user._id;
 
-  Post.findOne({ _id: postId }, (err, result) => {
+  Post.findOne({
+    _id: postId
+  }, (err, result) => {
     if (err) {
       next(err);
     } else {
@@ -93,7 +95,9 @@ router.post('/downvote/:postId', (req, res, next) => {
   const postId = req.params.postId;
   const userId = req.user._id;
 
-  Post.findOne({ _id: postId }, (err, result) => {
+  Post.findOne({
+    _id: postId
+  }, (err, result) => {
     if (err) {
       next(err);
     } else {
@@ -127,7 +131,9 @@ router.post('/downvote/:postId', (req, res, next) => {
 
 router.get('/:postId', (req, res, next) => {
   const postId = req.params.postId;
-  Post.findOne({ _id: postId }, (err, result) => {
+  Post.findOne({
+    _id: postId
+  }, (err, result) => {
     if (err) {
       next(err);
     }
@@ -148,7 +154,7 @@ router.post('/:postId/comment', (req, res, next) => {
     owner: hacker
   });
 
-  newComment.save((err) => { });
+  newComment.save((err) => {});
 
   const updateComments = {
     $push: {
@@ -156,7 +162,9 @@ router.post('/:postId/comment', (req, res, next) => {
     }
   };
 
-  Post.update({ _id: postId }, updateComments, (err) => {
+  Post.update({
+    _id: postId
+  }, updateComments, (err) => {
     if (err) {
       next(err);
     }
