@@ -1,25 +1,27 @@
-<h2>Signup</h2>
+<div class="container">
+  <h2>Signup</h2>
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="hackername">Hackername</label>
-  <input id="hackername" type="text" name="hackername" placeholder="Ironhacker">
-  <br>
-  <br>
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <form action="/auth/signup" method="POST" id="form-container">
+    <label for="hackername">Hackername</label>
+    <input id="hackername" type="text" name="hackername" placeholder="Ironhacker">
+    <br>
+    <br>
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder="Your password">
 
-  <% if (typeof message !== "undefined") { %>
-    <div class="error-message">
-      <%= message %>
-    </div>
-    <% } %>
-      <br>
-      <br>
+    <% if (typeof message !== "undefined") { %>
+      <div class="error-message">
+        <%= message %>
+      </div>
+      <% } %>
+        <br>
+        <br>
 
-      <button>Create account</button>
+        <button>Create account</button>
 
-      <p class="account-message">
-        Do you already have an account?
-        <a class="buttons" href="/auth/login">Login</a>
-      </p>
-</form>
+        <p class="account-message">
+          Do you already have an account?
+          <a class="buttons" href="/auth/login">Login</a>
+        </p>
+  </form>
+</div>
