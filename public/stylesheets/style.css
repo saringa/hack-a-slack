@@ -1,18 +1,19 @@
 html {
   box-sizing: border-box;
-  /* border: 1px solid; */
   font-family: "Orbitron", sans-serif;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+  border: 1px solid;
 }
 
 body {
   padding: 50px;
   margin-top: 150px;
   height: 100vh;
+  background-image: url("../images/Artboard.svg");
 }
 
 .header {
@@ -74,6 +75,8 @@ body {
 .form {
   align-items: center;
   justify-content: space-around;
+  display: flex;
+  flex-direction: column;
 }
 
 #post-text {
@@ -98,4 +101,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+textarea {
+  width: 50%;
+  height: 25%;
+  background-color: black;
+  color: lawngreen;
+  border: solid black 2px;
+  font-family: monospace;
+  font-size: 2em;
 }
