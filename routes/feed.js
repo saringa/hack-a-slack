@@ -25,7 +25,6 @@ router.get('/', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
         user: req.user,
         postArray: valideDates
       };
-      console.log(valideDates[0].comments[0].text);
       res.render('feed/all', data);
     }
   });
@@ -162,6 +161,7 @@ router.post('/:postId/comment', (req, res, next) => {
       next(err);
     }
     res.redirect('/feed');
+    // res.json('it worked');
   });
 });
 
