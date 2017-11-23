@@ -16,10 +16,10 @@
                 <% }); %>
                   <% if(isInUpvotes == false && isInDownvotes == false) { %>
                     <form action="/feed/upvote/<%= postArray[ix]._id %>" method="POST">
-                      <input type="submit" value="Upvote">
+                      <input id="upvote-icon" src="../images/rock_icon.svg" type="image" value="Upvote">
                     </form>
                     <form action="/feed/downvote/<%= postArray[ix]._id %>" method="POST">
-                      <input type="submit" value="Downvote">
+                      <input id="downvote-icon" src="../images/rude_icon.svg" type="image" value="Downvote">
                     </form>
                     <% } else { %>
                       <p>

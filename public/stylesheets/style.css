@@ -13,7 +13,12 @@ body {
   padding: 50px;
   margin-top: 150px;
   height: 100vh;
-  background-image: url("../images/Background_DarkVersion.svg");
+  background-image: url("../images/Background.svg");
+}
+
+.title-header {
+  text-decoration: none;
+  color: #2e364c;
 }
 
 .header {
@@ -54,7 +59,7 @@ body {
 .container {
   margin-top: 125px;
   font-size: 24px;
-  background-color: white;
+  /*   */
   border-radius: 78px;
   padding: 2%;
 }
@@ -97,6 +102,7 @@ body {
   text-decoration: none;
   border: 2px #3dc4fd;
   margin: 0 3%;
+  font-family: "Orbitron", sans-serif;
 }
 
 .blank-space {
@@ -171,4 +177,12 @@ textarea {
   border: solid black 2px;
   font-family: monospace;
   font-size: 2em;
+}
+
+h2 {
+  color: white;
+}
+
+button.buttons {
+  font-family: "Orbitron", sans-serif;
 }
