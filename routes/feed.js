@@ -169,6 +169,7 @@ router.post('/:postId/comment', (req, res, next) => {
       next(err);
     }
     res.redirect('/feed');
+    // res.json('it worked');
   });
 });
 
