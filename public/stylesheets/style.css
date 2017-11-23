@@ -1,12 +1,12 @@
 html {
   box-sizing: border-box;
-  border: 1px solid;
   font-family: "Orbitron", sans-serif;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+  border: 1px solid;
 }
 
 body {

@@ -5,17 +5,9 @@
   <% for(var ix =0; ix < postArray.length; ix++) { %>
     <hr>
     <div class="post">
-
-      <div class="comment">
-        <p>
-          <%=postArray[ix].text%>
-            <%for(var iy = 0; iy < postArray[ix].comments.length; iy++) { %>
-              <p> //
-                <%=postArray[ix].comments[iy].text%>
-              </p>
-              <% } %>
-        </p>
-      </div>
+      <p>
+        <%=postArray[ix].text%>
+      </p>
       <% let isInUpvotes = postArray[ix].upvotes.some((el) => { %>
         <%  return el.equals(user._id); %>
           <% }); %>
@@ -37,7 +29,14 @@
                         <p>
                           <%=postArray[ix].score%>
                         </p>
-                        <a href="/feed/<%=postArray[ix]._id%>">New Comment</a>
+    </div>
+    <div class="comment">
+      <a href="/feed/<%=postArray[ix]._id%>">New Comment</a>
+      <%for(var iy = 0; iy < postArray[ix].comments.length; iy++) { %>
+        <p> //
+          <%=postArray[ix].comments[iy].text%>
+        </p>
+        <% } %>
     </div>
     <% } %>
       <hr>
