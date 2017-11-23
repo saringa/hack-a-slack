@@ -31,7 +31,7 @@
                         </p>
     </div>
     <div class="comment">
-      <a href="/feed/<%=postArray[ix]._id%>">New Comment</a>
+      <a class="comment-button" href="/feed/<%=postArray[ix]._id%>">New Comment</a>
       <%for(var iy = 0; iy < postArray[ix].comments.length; iy++) { %>
         <p> //
           <%=postArray[ix].comments[iy].text%>
