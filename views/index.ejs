@@ -1,18 +1,25 @@
-<div class="container">
-  <h1>
-    Welcome to
-    <%= title %>
-  </h1>
-  <p>This is the place to bully other ironhackers anonymously - just kidding. Here you can post whatever you want and people
-    will up- or downvote your post.</p>
-  <iframe src="https://giphy.com/embed/nfLpqTrNPpqcE" width="480" height="380" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-  <p>
+<body>
+  <div class="container">
+    <div class="title">
+      <h1>
+        Welcome to
+        <%= title %>
+      </h1>
+    </div>
 
-    <a class="buttons" href="/auth/signup"> Sign Up</a>
+    <div class="intro-paragraph">
+      <p>This is the place to bully other ironhackers anonymously - just kidding. Here you can post whatever you want and people
+        will up- or downvote your post.</p>
+    </div>
 
+    <div id="giphy">
+      <iframe src="https://giphy.com/embed/nfLpqTrNPpqcE" width="480" height="380" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    </div>
 
-    <a class="buttons" href="/auth/login">Log in</a>
+    <div id=index_buttons>
+      <a class="buttons" href="/auth/signup"> Sign Up</a>
+      <a class="buttons" href="/auth/login">Log in</a>
+    </div>
 
-
-  </p>
-</div>
+  </div>
+</body>
