@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-auth container">
   <h2>Signup</h2>
   <div>
@@ -12,6 +13,23 @@
       <div class="auth-input">
         <label for="password">Password</label>
         <input class="blank-space" id="password" type="password" name="password" placeholder="Your password">
+=======
+<div class="login-container">
+  <h2>Signup</h2>
+  <p>Note: your name is not published in the feed!</p>
+
+  <form action="/auth/signup" method="POST" id="form-container">
+    <label for="hackername">Hackername</label>
+    <input class="blank-space" id="hackername" type="text" name="hackername" placeholder="Ironhacker">
+    <br>
+    <br>
+    <label for="password">Password</label>
+    <input class="blank-space" id="password" type="password" name="password" placeholder="Your password">
+
+    <% if (typeof message !== "undefined") { %>
+      <div class="error-message">
+        <%= message %>
+>>>>>>> 363c43198a68302bf8028f52639e2285949fd6c2
       </div>
 
       <% if (typeof message !== "undefined") { %>

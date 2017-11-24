@@ -31,6 +31,7 @@ body {
   left: 0;
   flex-wrap: wrap;
   font-size: 32pt;
+  max-height: 180px;
 }
 
 .header-buttons {
@@ -56,6 +57,19 @@ body {
   border-radius: 78px;
   padding: 2%;
 }
+
+.login-container {
+  margin-top: 125px;
+  font-size: 24px;
+  background-color: #3dc4fd;
+  border-radius: 78px;
+  padding: 5%;
+}
+
+.login-container p {
+  color: white;
+}
+
 .container {
   margin-top: 125px;
   font-size: 24px;
@@ -110,6 +124,9 @@ body {
   background-color: white;
   display: inline-block;
   border-radius: 5px;
+  width: 20%;
+  height: 30px;
+  font-size: 1em;
 }
 
 .post {
@@ -152,9 +169,28 @@ body {
   flex-direction: column;
 }
 
+#new-form-container {
+  margin-top: 10%;
+  visibility: hidden;
+}
+
 #post-text {
   align-items: center;
   justify-content: center;
+}
+
+.post-text {
+  width: 80%;
+}
+
+.voting {
+  width: 10%;
+  font-size: 0.5em;
+}
+
+.post-score {
+  width: 5%;
+  text-align: right;
 }
 
 /* .buttons {
@@ -171,7 +207,7 @@ body {
 /* } */
 
 textarea {
-  width: 70%;
+  width: 90%;
   height: 25%;
   background-color: black;
   color: #04f6ff;

@@ -129,7 +129,7 @@ router.post('/downvote/:postId', (req, res, next) => {
   });
 });
 
-router.get('/:postId', (req, res, next) => {
+router.get('/:postId', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const postId = req.params.postId;
   Post.findOne({
     _id: postId
@@ -154,7 +154,7 @@ router.post('/:postId/comment', (req, res, next) => {
     owner: hacker
   });
 
-  newComment.save((err) => {});
+  newComment.save((err) => { });
 
   const updateComments = {
     $push: {
