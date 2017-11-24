@@ -118,6 +118,7 @@ body {
   border: 2px #3dc4fd;
   margin: 0 3%;
   font-family: "Orbitron", sans-serif;
+  text-align: center;
 }
 
 .blank-space {
@@ -222,4 +223,33 @@ h2 {
 
 button.buttons {
   font-family: "Orbitron", sans-serif;
+}
+
+.container-auth {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: grey;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blank-space {
+  height: 3em;
+  border-radius: 10px;
+}
+
+.auth-input {
+  display: flex;
+  flex-direction: column;
 }

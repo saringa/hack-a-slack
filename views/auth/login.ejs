@@ -1,28 +1,33 @@
+<<<<<<< HEAD
+<div class="container-auth container">
+=======
 <div class="login-container">
+>>>>>>> 363c43198a68302bf8028f52639e2285949fd6c2
   <h2>Login</h2>
-
-  <form action="/auth/login" method="POST">
-    <div>
-      <label for="username">Hackername:</label>
-      <input class="blank-space" type="text" name="username">
-    </div>
-    <br>
-    <div>
-      <label for="password">Password:</label>
-      <input class="blank-space" type="password" name="password">
-    </div>
-    <% if (typeof message !== "undefined") { %>
-      <div class="error-message">
-        <%= message %>
+  <div>
+    <form action="/auth/login" method="POST" class="auth-form">
+      <div class="auth-input">
+        <label for="username">Hackername:</label>
+        <input class="blank-space" type="text" name="username">
       </div>
-      <% } %>
-        <br>
-        <div>
-          <input class="buttons" type="submit" value="Log In">
+      <br>
+      <div class="auth-input">
+        <label for="password">Password:</label>
+        <input class="blank-space" type="password" name="password">
+      </div>
+      <% if (typeof message !== "undefined") { %>
+        <div class="error-message">
+          <%= message %>
         </div>
-  </form>
-  <p class="account-message">
-    Want to join?
-    <a class="buttons" href="/auth/signup">Create Account</a>
-  </p>
+        <% } %>
+          <br>
+          <div>
+            <input class="buttons" type="submit" value="Log In">
+          </div>
+    </form>
+    <div class="account-message">
+      <p>Want to join?</p>
+      <a class="buttons" href="/auth/signup">Create Account</a>
+    </div>
+  </div>
 </div>
