@@ -31,6 +31,7 @@ body {
   left: 0;
   flex-wrap: wrap;
   font-size: 32pt;
+  max-height: 180px;
 }
 
 .header-buttons {
@@ -165,6 +166,11 @@ body {
   justify-content: space-around;
   display: flex;
   flex-direction: column;
+}
+
+#new-form-container {
+  margin-top: 10%;
+  visibility: hidden;
 }
 
 #post-text {
