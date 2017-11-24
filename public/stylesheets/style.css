@@ -248,9 +248,3 @@ button.buttons {
   display: flex;
   flex-direction: column;
 }
-
-@media (max-width: 800px) {
-  .header {
-    max-height: 1px;
-  }
-}
