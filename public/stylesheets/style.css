@@ -47,6 +47,7 @@ body {
   border-radius: 15px;
   text-decoration: none;
   margin: 0 3%;
+  box-shadow: #484949 10px 10px 10px;
   /* font-family: ‘Source Code Pro’, monospace; */
 }
 
