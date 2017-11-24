@@ -150,6 +150,9 @@ body {
   color: white;
   border-radius: 0px 0px 23px 24px;
   padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .comment-button {
@@ -247,4 +250,9 @@ button.buttons {
 .auth-input {
   display: flex;
   flex-direction: column;
+}
+
+#comment-post {
+  color: #04f6ff;
+  font-size: 1.5em;
 }
