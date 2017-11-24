@@ -5,9 +5,11 @@
   <% for(var ix =0; ix < postArray.length; ix++) { %>
     <hr>
     <div class="post">
-      <p>
-        <%=postArray[ix].text%>
-      </p>
+      <div class="post-text">
+        <p>
+          <%=postArray[ix].text%>
+        </p>
+      </div>
       <% let isInUpvotes = postArray[ix].upvotes.some((el) => { %>
         <%  return el.equals(user._id); %>
           <% }); %>
@@ -15,20 +17,27 @@
               <%  return el.equals(user._id); %>
                 <% }); %>
                   <% if(isInUpvotes == false && isInDownvotes == false) { %>
-                    <form action="/feed/upvote/<%= postArray[ix]._id %>" method="POST">
-                      <input id="upvote-icon" src="../images/rock_icon.svg" type="image" value="Upvote">
-                    </form>
-                    <form action="/feed/downvote/<%= postArray[ix]._id %>" method="POST">
-                      <input id="downvote-icon" src="../images/rude_icon.svg" type="image" value="Downvote">
-                    </form>
+                    <div class="voting">
+                      <form action="/feed/upvote/<%= postArray[ix]._id %>" method="POST">
+                        <input id="upvote-icon" src="../images/rock_icon.svg" type="image" value="Upvote">
+                      </form>
+                      <hr>
+                      <form action="/feed/downvote/<%= postArray[ix]._id %>" method="POST">
+                        <input id="downvote-icon" src="../images/rude_icon.svg" type="image" value="Downvote">
+                      </form>
+                    </div>
                     <% } else { %>
-                      <p>
-                        !!! Stop voting !!!
-                      </p>
-                      <% } %>
+                      <div class="voting">
                         <p>
-                          <%=postArray[ix].score%>
+                          voted!
                         </p>
+                      </div>
+                      <% } %>
+                        <div class="post-score">
+                          <p>
+                            <%=postArray[ix].score%>
+                          </p>
+                        </div>
     </div>
     <div class="comment">
       <a class="comment-button" href="/feed/<%=postArray[ix]._id%>">New Comment</a>
