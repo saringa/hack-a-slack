@@ -122,11 +122,11 @@ body {
 }
 
 .blank-space {
+  height: 3em;
+  border-radius: 10px;
   background-color: white;
   display: inline-block;
   border-radius: 5px;
-  width: 20%;
-  height: 30px;
   font-size: 1em;
 }
 
@@ -229,7 +229,7 @@ button.buttons {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: grey;
+  background: #3dc4fd;
 }
 
 .auth-form {
@@ -242,11 +242,6 @@ button.buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.blank-space {
-  height: 3em;
-  border-radius: 10px;
 }
 
 .auth-input {
