@@ -218,7 +218,7 @@ textarea {
   color: #04f6ff;
   border: solid black 2px;
   font-family: monospace;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 h2 {
@@ -251,4 +251,9 @@ button.buttons {
 .auth-input {
   display: flex;
   flex-direction: column;
+}
+
+#comment-post {
+  color: #04f6ff;
+  font-size: 1.5em;
 }
