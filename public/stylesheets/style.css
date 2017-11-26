@@ -176,6 +176,7 @@ body {
 #new-form-container {
   margin-top: 10%;
   visibility: hidden;
+  overflow: hidden;
 }
 
 #post-text {
